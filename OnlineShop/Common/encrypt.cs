@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace OnlineShop.Common
 {
-    public static class encrypt
+    public static class Encrypt
     {
         public static string MD5Hash(string text)
         {

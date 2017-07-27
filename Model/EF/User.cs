@@ -35,5 +35,6 @@ namespace Model.EF
 
         [StringLength(50)]
         public string ModifieldBy { get; set; }
+        public bool Status { get; internal set; }
     }
 }

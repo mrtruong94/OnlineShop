@@ -22,8 +22,8 @@ namespace OnlineShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.Login(model.UserName, model.Password);
-                if (result)
+                var result = dao.Login(model.UserName, Encrypt.MD5Hash(model.Password));
+                if (result == 1)
                 {
                     var user = dao.GetByID(model.UserName);
                     var userSession = new UserLogin();
@@ -32,13 +32,25 @@ namespace OnlineShop.Areas.Admin.Controllers
                     Session.Add(CommonConst.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
+                else if (result == 0)
+                {
+                    ModelState.AddModelError("", "Tài khoản này không tồn tại!");
+                }
+                else if (result == -1)
+                {
+                    ModelState.AddModelError("", "Tài khoản đang bị khóa!");
+                }
+                else if (result == -2)
+                {
+                    ModelState.AddModelError("", " Mật khẩu không đúng!");
+                }
                 else
                 {
-                    ModelState.AddModelError("", "Sai tên đăng nhập hoặc mật khẩu!");
-                }
+                    ModelState.AddModelError("", "Đăng nhập không đúng!");
 
+                }
+                return View("Index");
             }
-            return View("Index");
         }
     }
 }
