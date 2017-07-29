@@ -27,9 +27,9 @@ namespace OnlineShop.Areas.Admin.Controllers
                 {
                     var user = dao.GetByID(model.UserName);
                     var userSession = new UserLogin();
-                    userSession.UserName = user.UserName;
-                    userSession.UserID = user.ID;
-                    Session.Add(CommonConst.USER_SESSION, userSession);
+                        userSession.UserName = user.UserName;
+                        userSession.UserID = user.ID;
+                        Session.Add(CommonConst.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == 0)
@@ -49,8 +49,8 @@ namespace OnlineShop.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Đăng nhập không đúng!");
 
                 }
-                return View("Index");
             }
+            return View("Index");
         }
     }
 }

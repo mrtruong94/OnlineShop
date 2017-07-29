@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Category.cs" />
@@ -63,9 +62,9 @@
     <Compile Include="EF\MenuType.cs" />
     <Compile Include="EF\News.cs" />
     <Compile Include="EF\NewsTag.cs" />
+    <Compile Include="EF\OnlineShop.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\ProductCategory.cs" />
-    <Compile Include="EF\ShopOnlineDbContext.cs" />
     <Compile Include="EF\Slide.cs" />
     <Compile Include="EF\SystermConfig.cs" />
     <Compile Include="EF\Tag.cs" />

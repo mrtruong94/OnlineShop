@@ -10,11 +10,12 @@ namespace Model.DAO
      
     public class UserDao
     {
-        ShopOnlineDbContext db = null;
+        OnlineShop db = null;
         public UserDao()
         {
-            db = new ShopOnlineDbContext();
+            db = new OnlineShop();
         }
+        //Insert user vào db
         public long Insert(User entity)
         {
             db.Users.Add(entity);
@@ -38,11 +39,12 @@ namespace Model.DAO
                 {
                     return -1;
                 }
-                else {
+                else
+                {
                     if (result.Password == passWord)
                         return 1;
                     else return -2;
-                    }
+                }
             }
         }
     }
